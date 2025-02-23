@@ -1,5 +1,7 @@
 'use client';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import ProjectSideBar from '../components/ProjectSidebar';
 import NewProject from '../components/NewProject';
 import NoProjectSelected from '../components/NoProjectSelected';
@@ -19,9 +21,25 @@ export default function Home() {
     });
   }
 
+  function handleAddProject(projectData) {
+    const newProject = {
+      id: uuidv4(),
+      ...projectData,
+    };
+
+    setProjectsState((prevState) => {
+      return {
+        projects: [...prevState.projects, newProject],
+        selectedProjectId: newProject.id,
+      };
+    });
+  }
+
+  console.log(projectsState);
+
   let content;
   if (projectsState.selectedProjectId === null) {
-    content = <NewProject />;
+    content = <NewProject onAdd={handleAddProject} />;
   } else {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }
