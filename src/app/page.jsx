@@ -35,8 +35,6 @@ export default function Home() {
     });
   }
 
-  console.log(projectsState);
-
   let content;
   if (projectsState.selectedProjectId === null) {
     content = <NewProject onAdd={handleAddProject} />;
@@ -46,7 +44,7 @@ export default function Home() {
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <ProjectSideBar onStartAddProject={handleStartAddProject} />
+      <ProjectSideBar onStartAddProject={handleStartAddProject} projects={projectsState.projects} />
       {content}
     </main>
   );
