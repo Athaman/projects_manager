@@ -11,8 +11,33 @@ export default function Home() {
   const [projectsState, setProjectsState] = useState({
     selectedProjectId: undefined,
     projects: [],
+    tasks: [],
   });
 
+  function handleAddTask(task) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: [
+          ...prevState.tasks,
+          {
+            id: uuidv4(),
+            projectId: prevState.selectedProjectId,
+            text: task,
+          },
+        ],
+      };
+    });
+  }
+
+  function handleDeleteTask(taskId) {
+    setProjectsState((prevState) => {
+      return {
+        ...prevState,
+        tasks: prevState.tasks.filter((task) => task.id !== taskId),
+      };
+    });
+  }
   function handleStartAddProject() {
     setProjectsState((prevState) => {
       return {
@@ -39,6 +64,7 @@ export default function Home() {
 
     setProjectsState((prevState) => {
       return {
+        ...prevState,
         projects: [...prevState.projects, newProject],
         selectedProjectId: newProject.id,
       };
@@ -64,7 +90,16 @@ export default function Home() {
   }
 
   const selectedProject = projectsState.projects.find((project) => project.id === projectsState.selectedProjectId);
-  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject} />;
+
+  let content = (
+    <SelectedProject
+      project={selectedProject}
+      onDelete={handleDeleteProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
+      tasks={projectsState.tasks.filter((task) => task.projectId === projectsState.selectedProjectId)}
+    />
+  );
   if (projectsState.selectedProjectId === null) {
     content = <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />;
   } else if (!selectedProject) {
