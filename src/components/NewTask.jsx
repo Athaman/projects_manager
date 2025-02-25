@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import { TasksContext } from '@/context/TasksContext';
 
 export default function NewTask() {
   const [enteredTask, setEnteredTask] = useState('');
-  const { handleAddTask } = useContext(AppContext);
+  const { handleAddTask } = useContext(TasksContext);
 
   function handleChange(event) {
     setEnteredTask(event.target.value);

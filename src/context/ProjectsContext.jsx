@@ -3,30 +3,13 @@
 import { createContext, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-export const AppContext = createContext();
+export const ProjectsContext = createContext();
 
-export function AppProvider({ children }) {
+export function ProjectsProvider({ children }) {
   const [projectsState, setProjectsState] = useState({
     selectedProjectId: undefined,
     projects: [],
   });
-
-  const [tasksState, setTasksState] = useState([]);
-
-  function handleAddTask(task) {
-    setTasksState((prevTasks) => [
-      ...prevTasks,
-      {
-        id: uuidv4(),
-        projectId: projectsState.selectedProjectId,
-        text: task,
-      },
-    ]);
-  }
-
-  function handleDeleteTask(taskId) {
-    setTasksState((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
-  }
 
   function handleStartAddProject() {
     setProjectsState((prevState) => ({
@@ -72,13 +55,10 @@ export function AppProvider({ children }) {
   const selectedProject = projectsState.projects.find((project) => project.id === projectsState.selectedProjectId);
 
   return (
-    <AppContext.Provider
+    <ProjectsContext.Provider
       value={{
         projectsState,
-        tasksState,
         selectedProject,
-        handleAddTask,
-        handleDeleteTask,
         handleStartAddProject,
         handleCancelAddProject,
         handleAddProject,
@@ -87,6 +67,6 @@ export function AppProvider({ children }) {
       }}
     >
       {children}
-    </AppContext.Provider>
+    </ProjectsContext.Provider>
   );
 }

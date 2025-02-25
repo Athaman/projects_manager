@@ -1,11 +1,9 @@
 import { useContext } from 'react';
 import NewTask from './NewTask';
-import { AppContext } from '../context/AppContext';
+import { TasksContext } from '../context/TasksContext';
 
 export default function Tasks() {
-  const { state, handleDeleteTask } = useContext(AppContext);
-
-  const tasks = state.tasks.filter((task) => task.projectId === state.selectedProjectId);
+  const { tasks, handleDeleteTask } = useContext(TasksContext);
 
   return (
     <section>
