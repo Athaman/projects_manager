@@ -5,14 +5,12 @@ import ProjectSideBar from '../components/ProjectSidebar';
 import NewProject from '../components/NewProject';
 import NoProjectSelected from '../components/NoProjectSelected';
 import SelectedProject from '../components/SelectedProject';
-import { AppContext, AppProvider } from '../context/AppContext';
+import { AppContext } from '../context/AppContext';
 
 export default function Home() {
   const {
     state,
     selectedProject,
-    handleAddTask,
-    handleDeleteTask,
     handleStartAddProject,
     handleCancelAddProject,
     handleAddProject,
@@ -20,15 +18,7 @@ export default function Home() {
     handleDeleteProject,
   } = useContext(AppContext);
 
-  let content = (
-    <SelectedProject
-      project={selectedProject}
-      onDelete={handleDeleteProject}
-      onAddTask={handleAddTask}
-      onDeleteTask={handleDeleteTask}
-      tasks={state.tasks.filter((task) => task.projectId === state.selectedProjectId)}
-    />
-  );
+  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject} />;
   if (state.selectedProjectId === null) {
     content = <NewProject onAdd={handleAddProject} onCancel={handleCancelAddProject} />;
   } else if (!selectedProject) {

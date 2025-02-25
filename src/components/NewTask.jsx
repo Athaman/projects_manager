@@ -1,15 +1,19 @@
-import { useState } from 'react';
-export default function NewTask({ onAddTask }) {
+import { useState, useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+
+export default function NewTask() {
   const [enteredTask, setEnteredTask] = useState('');
+  const { handleAddTask } = useContext(AppContext);
 
   function handleChange(event) {
     setEnteredTask(event.target.value);
   }
 
   function handleClick() {
-    onAddTask(enteredTask);
+    handleAddTask(enteredTask);
     setEnteredTask('');
   }
+
   return (
     <div className="flex items-center gap-4">
       <input
