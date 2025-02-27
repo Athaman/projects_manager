@@ -10,6 +10,8 @@ export default function NewTask() {
   }
 
   function handleClick() {
+    // TODO, add user feedback?
+    if (!enteredTask) return;
     handleAddTask(enteredTask);
     setEnteredTask('');
   }
@@ -21,8 +23,9 @@ export default function NewTask() {
         className="w-64 px-2 py-1 rounded-sm text-stone-700 bg-stone-200"
         onChange={handleChange}
         value={enteredTask}
+        autoFocus
       />
-      <button className="text-stone-700 hover:text-stone-950" onClick={handleClick}>
+      <button className="text-stone-700 hover:text-stone-950" onClick={handleClick} disabled={!enteredTask}>
         Add Task
       </button>
     </div>
