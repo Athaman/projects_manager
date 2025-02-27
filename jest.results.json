@@ -1,1 +1,153 @@
-{"numFailedTestSuites":0,"numFailedTests":0,"numPassedTestSuites":1,"numPassedTests":5,"numPendingTestSuites":0,"numPendingTests":0,"numRuntimeErrorTestSuites":0,"numTodoTests":0,"numTotalTestSuites":1,"numTotalTests":5,"openHandles":[],"snapshot":{"added":0,"didUpdate":false,"failure":false,"filesAdded":0,"filesRemoved":0,"filesRemovedList":[],"filesUnmatched":0,"filesUpdated":0,"matched":0,"total":0,"unchecked":0,"uncheckedKeysByFile":[],"unmatched":0,"updated":0},"startTime":1740651317791,"success":true,"testResults":[{"assertionResults":[{"ancestorTitles":[],"duration":39,"failureDetails":[],"failureMessages":[],"fullName":"renders input and button","invocations":1,"location":null,"numPassingAsserts":2,"retryReasons":[],"status":"passed","title":"renders input and button"},{"ancestorTitles":[],"duration":6,"failureDetails":[],"failureMessages":[],"fullName":"updates input value on change","invocations":1,"location":null,"numPassingAsserts":1,"retryReasons":[],"status":"passed","title":"updates input value on change"},{"ancestorTitles":[],"duration":9,"failureDetails":[],"failureMessages":[],"fullName":"calls handleAddTask and clears input on button click","invocations":1,"location":null,"numPassingAsserts":2,"retryReasons":[],"status":"passed","title":"calls handleAddTask and clears input on button click"},{"ancestorTitles":[],"duration":4,"failureDetails":[],"failureMessages":[],"fullName":"does not call handleAddTask when input is empty","invocations":1,"location":null,"numPassingAsserts":1,"retryReasons":[],"status":"passed","title":"does not call handleAddTask when input is empty"},{"ancestorTitles":[],"duration":3,"failureDetails":[],"failureMessages":[],"fullName":"input is focused on render","invocations":1,"location":null,"numPassingAsserts":1,"retryReasons":[],"status":"passed","title":"input is focused on render"}],"endTime":1740651318471,"message":"","name":"/home/athaman/code/project_manager/src/components/NewTask.test.jsx","startTime":1740651318112,"status":"passed","summary":""}],"wasInterrupted":false}
+{
+  "numFailedTestSuites": 1,
+  "numFailedTests": 2,
+  "numPassedTestSuites": 0,
+  "numPassedTests": 5,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 1,
+  "numTotalTests": 7,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1740651878595,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["NewTask Component", "Initial Render"],
+          "duration": 38,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "NewTask Component Initial Render renders input and button",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 2,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "renders input and button"
+        },
+        {
+          "ancestorTitles": ["NewTask Component", "Initial Render"],
+          "duration": 4,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "NewTask Component Initial Render input is focused on render",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "input is focused on render"
+        },
+        {
+          "ancestorTitles": ["NewTask Component", "Input Behavior"],
+          "duration": 6,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "NewTask Component Input Behavior updates input value on change",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "updates input value on change"
+        },
+        {
+          "ancestorTitles": ["NewTask Component", "Button Behavior"],
+          "duration": 6,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "NewTask Component Button Behavior button is disabled when input is empty",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "button is disabled when input is empty"
+        },
+        {
+          "ancestorTitles": ["NewTask Component", "Button Behavior"],
+          "duration": 12,
+          "failureDetails": [
+            {
+              "matcherResult": {
+                "pass": true,
+                "message": "\u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).not.toBeDisabled()\u001b[22m\n\nReceived element is disabled:\n  \u001b[31m<button class=\"text-stone-700 hover:text-stone-950\" disabled=\"\" />\u001b[39m"
+              }
+            }
+          ],
+          "failureMessages": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).not.toBeDisabled()\u001b[22m\n\nReceived element is disabled:\n  \u001b[31m<button class=\"text-stone-700 hover:text-stone-950\" disabled=\"\" />\u001b[39m\n    at Object.<anonymous> (/home/athaman/code/project_manager/src/components/NewTask.test.jsx:71:26)\n    at Promise.then.completed (/home/athaman/code/project_manager/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/home/athaman/code/project_manager/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _runTest (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:252:3)\n    at async _runTestsForDescribeBlock (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:126:9)\n    at async _runTestsForDescribeBlock (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:121:9)\n    at async _runTestsForDescribeBlock (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:121:9)\n    at async run (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:71:3)\n    at async runAndTransformResultsToJestFormat (/home/athaman/code/project_manager/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at async jestAdapter (/home/athaman/code/project_manager/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at async runTestInternal (/home/athaman/code/project_manager/node_modules/jest-runner/build/runTest.js:367:16)\n    at async runTest (/home/athaman/code/project_manager/node_modules/jest-runner/build/runTest.js:444:34)"
+          ],
+          "fullName": "NewTask Component Button Behavior button is enabled when input is not empty",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "failed",
+          "title": "button is enabled when input is not empty"
+        },
+        {
+          "ancestorTitles": ["NewTask Component", "Button Behavior"],
+          "duration": 11,
+          "failureDetails": [
+            {
+              "matcherResult": {
+                "message": "\u001b[2mexpect(\u001b[22m\u001b[31mjest.fn()\u001b[39m\u001b[2m).\u001b[22mtoHaveBeenCalledWith\u001b[2m(\u001b[22m\u001b[32m...expected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m\"New Task\"\u001b[39m\n\nNumber of calls: \u001b[31m0\u001b[39m",
+                "pass": false
+              }
+            }
+          ],
+          "failureMessages": [
+            "Error: \u001b[2mexpect(\u001b[22m\u001b[31mjest.fn()\u001b[39m\u001b[2m).\u001b[22mtoHaveBeenCalledWith\u001b[2m(\u001b[22m\u001b[32m...expected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: \u001b[32m\"New Task\"\u001b[39m\n\nNumber of calls: \u001b[31m0\u001b[39m\n    at Object.<anonymous> (/home/athaman/code/project_manager/src/components/NewTask.test.jsx:88:29)\n    at Promise.then.completed (/home/athaman/code/project_manager/node_modules/jest-circus/build/utils.js:298:28)\n    at new Promise (<anonymous>)\n    at callAsyncCircusFn (/home/athaman/code/project_manager/node_modules/jest-circus/build/utils.js:231:10)\n    at _callCircusTest (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:316:40)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async _runTest (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:252:3)\n    at async _runTestsForDescribeBlock (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:126:9)\n    at async _runTestsForDescribeBlock (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:121:9)\n    at async _runTestsForDescribeBlock (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:121:9)\n    at async run (/home/athaman/code/project_manager/node_modules/jest-circus/build/run.js:71:3)\n    at async runAndTransformResultsToJestFormat (/home/athaman/code/project_manager/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)\n    at async jestAdapter (/home/athaman/code/project_manager/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)\n    at async runTestInternal (/home/athaman/code/project_manager/node_modules/jest-runner/build/runTest.js:367:16)\n    at async runTest (/home/athaman/code/project_manager/node_modules/jest-runner/build/runTest.js:444:34)"
+          ],
+          "fullName": "NewTask Component Button Behavior calls handleAddTask and clears input on button click",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 0,
+          "retryReasons": [],
+          "status": "failed",
+          "title": "calls handleAddTask and clears input on button click"
+        },
+        {
+          "ancestorTitles": ["NewTask Component", "Button Behavior"],
+          "duration": 4,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "NewTask Component Button Behavior does not call handleAddTask when input is empty",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "status": "passed",
+          "title": "does not call handleAddTask when input is empty"
+        }
+      ],
+      "endTime": 1740651879071,
+      "message": "\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mNewTask Component › Button Behavior › button is enabled when input is not empty\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31melement\u001b[39m\u001b[2m).not.toBeDisabled()\u001b[22m\n\n    Received element is disabled:\n      \u001b[31m<button class=\"text-stone-700 hover:text-stone-950\" disabled=\"\" />\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 69 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 70 |\u001b[39m       fireEvent\u001b[33m.\u001b[39mchange(input\u001b[33m,\u001b[39m { target\u001b[33m:\u001b[39m { value\u001b[33m:\u001b[39m \u001b[32m'New Task'\u001b[39m } })\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 71 |\u001b[39m       expect(button)\u001b[33m.\u001b[39mnot\u001b[33m.\u001b[39mtoBeDisabled()\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 72 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 73 |\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 74 |\u001b[39m     test(\u001b[32m'calls handleAddTask and clears input on button click'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/components/NewTask.test.jsx\u001b[39m\u001b[0m\u001b[2m:71:26)\u001b[22m\u001b[2m\u001b[22m\n\n\u001b[1m\u001b[31m  \u001b[1m● \u001b[22m\u001b[1mNewTask Component › Button Behavior › calls handleAddTask and clears input on button click\u001b[39m\u001b[22m\n\n    \u001b[2mexpect(\u001b[22m\u001b[31mjest.fn()\u001b[39m\u001b[2m).\u001b[22mtoHaveBeenCalledWith\u001b[2m(\u001b[22m\u001b[32m...expected\u001b[39m\u001b[2m)\u001b[22m\n\n    Expected: \u001b[32m\"New Task\"\u001b[39m\n\n    Number of calls: \u001b[31m0\u001b[39m\n\u001b[2m\u001b[22m\n\u001b[2m    \u001b[0m \u001b[90m 86 |\u001b[39m       fireEvent\u001b[33m.\u001b[39mclick(button)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 87 |\u001b[39m\u001b[22m\n\u001b[2m    \u001b[31m\u001b[1m>\u001b[22m\u001b[2m\u001b[39m\u001b[90m 88 |\u001b[39m       expect(handleAddTask)\u001b[33m.\u001b[39mtoHaveBeenCalledWith(\u001b[32m'New Task'\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m    |\u001b[39m                             \u001b[31m\u001b[1m^\u001b[22m\u001b[2m\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 89 |\u001b[39m       expect(input\u001b[33m.\u001b[39mvalue)\u001b[33m.\u001b[39mtoBe(\u001b[32m''\u001b[39m)\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 90 |\u001b[39m     })\u001b[33m;\u001b[39m\u001b[22m\n\u001b[2m     \u001b[90m 91 |\u001b[39m\u001b[0m\u001b[22m\n\u001b[2m\u001b[22m\n\u001b[2m      \u001b[2mat Object.<anonymous> (\u001b[22m\u001b[2m\u001b[0m\u001b[36msrc/components/NewTask.test.jsx\u001b[39m\u001b[0m\u001b[2m:88:29)\u001b[22m\u001b[2m\u001b[22m\n",
+      "name": "/home/athaman/code/project_manager/src/components/NewTask.test.jsx",
+      "startTime": 1740651878779,
+      "status": "failed",
+      "summary": ""
+    }
+  ],
+  "wasInterrupted": false
+}

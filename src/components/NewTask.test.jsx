@@ -2,97 +2,105 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { TasksContext } from '@/context/TasksContext';
 import NewTask from './NewTask';
 
-test('renders input and button', () => {
-  render(
-    <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
-      <NewTask />
-    </TasksContext.Provider>
-  );
+describe('NewTask Component', () => {
+  describe('Initial Render', () => {
+    test('renders input and button', () => {
+      render(
+        <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
+          <NewTask />
+        </TasksContext.Provider>
+      );
 
-  const input = screen.getByRole('textbox');
-  const button = screen.getByRole('button', { name: /add task/i });
+      const input = screen.getByRole('textbox');
+      const button = screen.getByRole('button', { name: /add task/i });
 
-  expect(input).toBeInTheDocument();
-  expect(button).toBeInTheDocument();
-});
+      expect(input).toBeInTheDocument();
+      expect(button).toBeInTheDocument();
+    });
 
-test('updates input value on change', () => {
-  render(
-    <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
-      <NewTask />
-    </TasksContext.Provider>
-  );
+    test('input is focused on render', () => {
+      render(
+        <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
+          <NewTask />
+        </TasksContext.Provider>
+      );
 
-  const input = screen.getByRole('textbox');
-  fireEvent.change(input, { target: { value: 'New Task' } });
+      const input = screen.getByRole('textbox');
+      expect(input).toHaveFocus();
+    });
+  });
 
-  expect(input.value).toBe('New Task');
-});
+  describe('Input Behavior', () => {
+    test('updates input value on change', () => {
+      render(
+        <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
+          <NewTask />
+        </TasksContext.Provider>
+      );
 
-test('calls handleAddTask and clears input on button click', () => {
-  const handleAddTask = jest.fn();
-  render(
-    <TasksContext.Provider value={{ handleAddTask }}>
-      <NewTask />
-    </TasksContext.Provider>
-  );
+      const input = screen.getByRole('textbox');
+      fireEvent.change(input, { target: { value: 'New Task' } });
 
-  const input = screen.getByRole('textbox');
-  const button = screen.getByRole('button', { name: /add task/i });
+      expect(input.value).toBe('New Task');
+    });
+  });
 
-  fireEvent.change(input, { target: { value: 'New Task' } });
-  fireEvent.click(button);
+  describe('Button Behavior', () => {
+    test('button is disabled when input is empty', () => {
+      render(
+        <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
+          <NewTask />
+        </TasksContext.Provider>
+      );
 
-  expect(handleAddTask).toHaveBeenCalledWith('New Task');
-  expect(input.value).toBe('');
-});
+      const button = screen.getByRole('button', { name: /add task/i });
+      expect(button).toBeDisabled();
+    });
 
-test('does not call handleAddTask when input is empty', () => {
-  const handleAddTask = jest.fn();
-  render(
-    <TasksContext.Provider value={{ handleAddTask }}>
-      <NewTask />
-    </TasksContext.Provider>
-  );
+    test('button is enabled when input is not empty', () => {
+      render(
+        <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
+          <NewTask />
+        </TasksContext.Provider>
+      );
 
-  const button = screen.getByRole('button', { name: /add task/i });
-  fireEvent.click(button);
+      const input = screen.getByRole('textbox');
+      const button = screen.getByRole('button', { name: /add task/i });
 
-  expect(handleAddTask).not.toHaveBeenCalled();
-});
+      fireEvent.change(input, { target: { value: 'New Task' } });
+      expect(button).not.toBeDisabled();
+    });
 
-test('input is focused on render', () => {
-  render(
-    <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
-      <NewTask />
-    </TasksContext.Provider>
-  );
+    test('calls handleAddTask and clears input on button click', () => {
+      const handleAddTask = jest.fn();
+      render(
+        <TasksContext.Provider value={{ handleAddTask }}>
+          <NewTask />
+        </TasksContext.Provider>
+      );
 
-  const input = screen.getByRole('textbox');
-  expect(input).toHaveFocus();
-});
+      const input = screen.getByRole('textbox');
+      const button = screen.getByRole('button', { name: /add task/i });
 
-test('button is disabled when input is empty', () => {
-  render(
-    <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
-      <NewTask />
-    </TasksContext.Provider>
-  );
+      fireEvent.change(input, { target: { value: 'New Task' } });
+      fireEvent.click(button);
 
-  const button = screen.getByRole('button', { name: /add task/i });
-  expect(button).toBeDisabled();
-});
+      expect(handleAddTask).toHaveBeenCalledWith('New Task');
+      expect(input.value).toBe('');
+    });
 
-test('button is enabled when input is not empty', () => {
-  render(
-    <TasksContext.Provider value={{ handleAddTask: jest.fn() }}>
-      <NewTask />
-    </TasksContext.Provider>
-  );
+    test('does not call handleAddTask when input is empty', () => {
+      const handleAddTask = jest.fn();
+      render(
+        <TasksContext.Provider value={{ handleAddTask }}>
+          <NewTask />
+        </TasksContext.Provider>
+      );
 
-  const input = screen.getByRole('textbox');
-  const button = screen.getByRole('button', { name: /add task/i });
+      const button = screen.getByRole('button', { name: /add task/i });
+      fireEvent.click(button);
 
-  fireEvent.change(input, { target: { value: 'New Task' } });
-  expect(button).not.toBeDisabled();
+      expect(handleAddTask).not.toHaveBeenCalled();
+    });
+  });
 });
